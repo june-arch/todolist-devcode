@@ -32,6 +32,9 @@
 $ npm install
 $ npx prisma db push
 $ npx prisma generate
+
+dont forget add .env 
+DATABASE_URL=mysql://user:pass@localhost:3306/todolist?connection_limit=10&pool_timeout=100&connect_timeout=100
 ```
 
 ## Running the app
