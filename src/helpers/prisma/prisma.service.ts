@@ -3,6 +3,28 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
+  constructor() {
+    let url = 'mysql://';
+
+    url += process.env.MYSQL_USER;
+    url += ':';
+    url += process.env.MYSQL_PASSWORD;
+    url += '@';
+    url += process.env.MYSQL_HOST;
+    url += ':';
+    url += process.env.MYSQL_PORT;
+    url += '/';
+    url += process.env.MYSQL_DBNAME;
+
+    super({
+      datasources: {
+        db: {
+          url,
+        },
+      },
+    });
+  }
+
   async onModuleInit() {
     await this.$connect();
     this.$use(async (params, next) => {
