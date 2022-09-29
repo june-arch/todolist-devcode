@@ -35,6 +35,8 @@ $ npx prisma generate
 
 dont forget add .env 
 DATABASE_URL=mysql://user:pass@localhost:3306/todolist?connection_limit=10&pool_timeout=100&connect_timeout=100
+dokcer image link
+$ docker run -e DATABASE_URL=mysql://root:1234@host.docker.internal:3306/todolist -p 3030:3030 june21/todolist-devcode
 ```
 
 ## Running the app
